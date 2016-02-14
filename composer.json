@@ -6,7 +6,6 @@
     "homepage": "https://github.com/jacekbarecki/flysystem-onedrive",
     "require": {
         "league/flysystem": "^1.0",
-        "league/flysystem-dropbox": "^1.0",
         "guzzlehttp/guzzle": "^6.1"
     },
     "require-dev": {
