@@ -3,11 +3,11 @@
 namespace JacekBarecki\FlysystemOneDrive\Adapter;
 
 use JacekBarecki\FlysystemOneDrive\Client\OneDriveClient;
-use League\Flysystem\Adapter\AbstractAdapter;
 use League\Flysystem\Adapter\Polyfill\NotSupportingVisibilityTrait;
+use League\Flysystem\AdapterInterface;
 use League\Flysystem\Config;
 
-class OneDriveAdapter extends AbstractAdapter
+class OneDriveAdapter implements AdapterInterface
 {
     use NotSupportingVisibilityTrait;
 
