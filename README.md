@@ -1,6 +1,5 @@
 # Flysystem OneDrive adapter
 
-[![Author](https://img.shields.io/badge/author-%40jacekbarecki-brightgreen.svg)](https://twitter.com/JacekBarecki)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
 The OneDrive adapter gives the possibility to use the [Flysystem](https://github.com/thephpleague/flysystem) filesystem abstraction library with OneDrive. 

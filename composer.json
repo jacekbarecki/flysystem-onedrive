@@ -3,7 +3,7 @@
     "description": "OneDrive adapter for the flysystem filesystem abstraction library",
     "keywords": ["flysystem", "filesystem", "api", "onedrive", "client"],
     "license": "MIT",
-    "homepage": "https://github.com/jacekbarecki/flysystem-onedrive",
+    "homepage": "https://github.com/davicente/flysystem-onedrive",
     "require": {
         "league/flysystem": "^1.0",
         "guzzlehttp/guzzle": "^6.1"
@@ -13,8 +13,8 @@
     },
     "authors": [
         {
-            "name": "Jacek Barecki",
-            "email": "jacek.barecki@gmail.com"
+            "name": "David Vicente",
+            "email": "davicentef@hotmail.com"
         }
     ],
     "autoload": {
