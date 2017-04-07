@@ -309,8 +309,8 @@ class OneDriveClient
     {
         $metadataRaw = $this->getMetadata($path)->getBody()->getContents();
         $metadata = json_decode($metadataRaw);
-
-        return $metadata->{'@content.downloadUrl'};
+        
+        return $metadata->{'webUrl'};
     }
 
     /**
