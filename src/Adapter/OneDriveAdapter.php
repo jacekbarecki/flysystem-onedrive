@@ -160,6 +160,13 @@ class OneDriveAdapter implements AdapterInterface
         return $result->toArray();
     }
 
+
+    public function getReadableResource($path) 
+    {
+        return $this->client->getReadableResource($path);
+    }
+
+
     /**
      * {@inheritdoc}
      */
