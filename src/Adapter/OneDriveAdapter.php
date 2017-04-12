@@ -236,7 +236,8 @@ class OneDriveAdapter implements AdapterInterface
         $response = $this->client->getMetadata($path);
         $responseContent = json_decode((string) $response->getBody());
 
-        $type = property_exists($responseContent, 'file') ? FlysystemMetadata::TYPE_DIRECTORY: FlysystemMetadata::TYPE_FILE;
+        $type = property_exists($responseContent, 'file') ? FlysystemMetadata::TYPE_FILE: FlysystemMetadata::TYPE_DIRECTORY;
+
         $flysystemMetadata = new FlysystemMetadata($type, $path);
         $this->updateFlysystemMetadataFromResponseContent($flysystemMetadata, $responseContent);
 
