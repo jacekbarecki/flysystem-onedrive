@@ -8,7 +8,7 @@ It uses the Guzzle library to communicate with the API.
 ## Installation
 
 ```bash
-composer require jacekbarecki/flysystem-onedrive
+composer require davicente/flysystem-onedrive
 ```
 
 ## Usage
