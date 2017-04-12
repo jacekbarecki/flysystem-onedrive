@@ -1,5 +1,5 @@
 {
-    "name": "jacekbarecki/flysystem-onedrive",
+    "name": "davicente/flysystem-onedrive",
     "description": "OneDrive adapter for the flysystem filesystem abstraction library",
     "keywords": ["flysystem", "filesystem", "api", "onedrive", "client"],
     "license": "MIT",
