@@ -6,7 +6,8 @@
     "homepage": "https://github.com/davicente/flysystem-onedrive",
     "require": {
         "league/flysystem": "^1.0",
-        "guzzlehttp/guzzle": "^6.1"
+        "guzzlehttp/guzzle": "^6.1",
+        "stevenmaguire/oauth2-microsoft": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.2"
