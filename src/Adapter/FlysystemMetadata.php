@@ -58,6 +58,11 @@ class FlysystemMetadata
     public $size;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @param string $type
      * @param string $path
      */

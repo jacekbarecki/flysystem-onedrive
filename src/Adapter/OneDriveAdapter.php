@@ -160,6 +160,13 @@ class OneDriveAdapter implements AdapterInterface
         return $result->toArray();
     }
 
+
+    public function getReadableResource($path) 
+    {
+        return $this->client->getReadableResource($path);
+    }
+
+
     /**
      * {@inheritdoc}
      */
@@ -178,7 +185,6 @@ class OneDriveAdapter implements AdapterInterface
 
             $flysystemMetadata = new FlysystemMetadata($type, $path);
             $this->updateFlysystemMetadataFromResponseContent($flysystemMetadata, $item);
-
             $result[] = $flysystemMetadata->toArray();
 
             if ($recursive && !$isFile) {
@@ -189,12 +195,19 @@ class OneDriveAdapter implements AdapterInterface
         return $result;
     }
 
+    public function getType($path)
+    {
+        $metadata = $this->getMetadata($path);
+        return array_key_exists('type', $metadata) ? $metadata['type']: null;
+    }
+
     /**
      * {@inheritdoc}
      */
     public function getSize($path)
     {
-        return $this->getMetadata($path);
+        $metadata = $this->getMetadata($path);
+        return array_key_exists('size', $metadata) ? $metadata['size']: 0;
     }
 
     /**
@@ -202,7 +215,8 @@ class OneDriveAdapter implements AdapterInterface
      */
     public function getMimetype($path)
     {
-        return $this->getMetadata($path);
+        $metadata = $this->getMetadata($path);
+        return array_key_exists('mimetype', $metadata) ? $metadata['mimetype']: null;
     }
 
     /**
@@ -210,7 +224,8 @@ class OneDriveAdapter implements AdapterInterface
      */
     public function getTimestamp($path)
     {
-        return $this->getMetadata($path);
+        $metadata = $this->getMetadata($path);
+        return array_key_exists('timestamp', $metadata) ? $metadata['timestamp']: 0;
     }
 
     /**
@@ -221,7 +236,9 @@ class OneDriveAdapter implements AdapterInterface
         $response = $this->client->getMetadata($path);
         $responseContent = json_decode((string) $response->getBody());
 
-        $flysystemMetadata = new FlysystemMetadata(FlysystemMetadata::TYPE_FILE, $path);
+        $type = property_exists($responseContent, 'file') ? FlysystemMetadata::TYPE_FILE: FlysystemMetadata::TYPE_DIRECTORY;
+
+        $flysystemMetadata = new FlysystemMetadata($type, $path);
         $this->updateFlysystemMetadataFromResponseContent($flysystemMetadata, $responseContent);
 
         return $flysystemMetadata->toArray();
@@ -239,7 +256,9 @@ class OneDriveAdapter implements AdapterInterface
 
         $flysystemMetadata->timestamp = $this->getLastModifiedTimestampFromResponse($responseContent);
         $flysystemMetadata->mimetype = $isFile ? $responseContent->file->mimeType : null;
-        $flysystemMetadata->size = $isFile ? $responseContent->size : null;
+        $flysystemMetadata->size = $isFile ? $responseContent->size: null;
+        $flysystemMetadata->name = $responseContent->name;
+        $flysystemMetadata->type = $isFile ? FlysystemMetadata::TYPE_FILE: FlysystemMetadata::TYPE_DIRECTORY;
     }
 
     /**

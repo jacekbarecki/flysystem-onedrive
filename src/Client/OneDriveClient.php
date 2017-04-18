@@ -85,6 +85,19 @@ class OneDriveClient
      *
      * @return Stream
      */
+    public function getReadableResource($path)
+    {
+        $url = $this->getDownloadUrlForFile($path);
+        $resource = fopen($url, 'r');
+
+        return $resource;
+    }
+
+    /**
+     * @param string $url
+     *
+     * @return Stream
+     */
     public function getStreamForUrl($url)
     {
         $resource = fopen($url, 'r');

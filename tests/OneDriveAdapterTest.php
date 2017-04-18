@@ -285,13 +285,7 @@ class OneDriveAdapterTest extends \PHPUnit_Framework_TestCase
         $mock->method('getMetadata')->willReturn($this->getResponseWithFileMetadata());
 
         $result = $adapter->getSize('/some pdf document.pdf');
-        $this->assertEquals('file', $result['type']);
-        $this->assertEquals('/some pdf document.pdf', $result['path']);
-        $this->assertEquals('application/pdf', $result['mimetype']);
-        $this->assertEquals('526022', $result['size']);
-
-        $expectedTimestamp = \DateTime::createFromFormat('Y-m-d\TH:i:s.uO', '2015-02-22T02:46:55.573Z',  new \DateTimeZone('UTC'));
-        $this->assertEquals($expectedTimestamp->getTimestamp(), $result['timestamp']);
+        $this->assertEquals('526022', $result);
     }
 
     /**
@@ -305,13 +299,8 @@ class OneDriveAdapterTest extends \PHPUnit_Framework_TestCase
         $mock->method('getMetadata')->willReturn($this->getResponseWithFileMetadata());
 
         $result = $adapter->getMimetype('/some pdf document.pdf');
-        $this->assertEquals('file', $result['type']);
-        $this->assertEquals('/some pdf document.pdf', $result['path']);
-        $this->assertEquals('application/pdf', $result['mimetype']);
-        $this->assertEquals('526022', $result['size']);
 
-        $expectedTimestamp = \DateTime::createFromFormat('Y-m-d\TH:i:s.uO', '2015-02-22T02:46:55.573Z',  new \DateTimeZone('UTC'));
-        $this->assertEquals($expectedTimestamp->getTimestamp(), $result['timestamp']);
+        $this->assertEquals('application/pdf', $result);
     }
 
     /**
@@ -325,13 +314,9 @@ class OneDriveAdapterTest extends \PHPUnit_Framework_TestCase
         $mock->method('getMetadata')->willReturn($this->getResponseWithFileMetadata());
 
         $result = $adapter->getTimestamp('/some pdf document.pdf');
-        $this->assertEquals('file', $result['type']);
-        $this->assertEquals('/some pdf document.pdf', $result['path']);
-        $this->assertEquals('application/pdf', $result['mimetype']);
-        $this->assertEquals('526022', $result['size']);
 
         $expectedTimestamp = \DateTime::createFromFormat('Y-m-d\TH:i:s.uO', '2015-02-22T02:46:55.573Z',  new \DateTimeZone('UTC'));
-        $this->assertEquals($expectedTimestamp->getTimestamp(), $result['timestamp']);
+        $this->assertEquals($expectedTimestamp->getTimestamp(), $result);
     }
 
     /**
