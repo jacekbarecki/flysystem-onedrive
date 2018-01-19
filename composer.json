@@ -1,6 +1,6 @@
 {
-    "name": "jacekbarecki/flysystem-onedrive",
-    "description": "OneDrive adapter for the flysystem filesystem abstraction library",
+    "name": "yosa/flysystem-onedrive",
+    "description": "Fork OneDrive adapter for the flysystem filesystem abstraction library",
     "keywords": ["flysystem", "filesystem", "api", "onedrive", "client"],
     "license": "MIT",
     "homepage": "https://github.com/jacekbarecki/flysystem-onedrive",
