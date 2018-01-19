@@ -19,7 +19,7 @@ class OneDriveClient
      */
     private $guzzle;
 
-    const BASE_URI = 'https://api.onedrive.com/v1.0/';
+    const BASE_URI = 'https://graph.microsoft.com/v1.0/';
 
     /**
      * @param string $accessToken
